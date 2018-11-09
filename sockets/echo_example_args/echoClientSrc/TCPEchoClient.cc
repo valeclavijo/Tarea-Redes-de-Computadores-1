@@ -25,7 +25,7 @@
 
 using namespace std;
 
-const uint32_t RCVBUFSIZE = 32;    // Size of receive buffer
+const uint32_t RCVBUFSIZE = 5000;    // Size of receive buffer
 
 int main(int argc, char *argv[]) {
 
@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
 			totalBytesReceived += bytesReceived;     // Keep tally of total bytes
 			echoBuffer[bytesReceived] = '\0';        // Terminate the string!
 			std::cout << echoBuffer;                      // Print the echo buffer
-			archivo << echoBuffer;
+			file << echoBuffer;
 		}
 		std::cout << std::endl;
 
