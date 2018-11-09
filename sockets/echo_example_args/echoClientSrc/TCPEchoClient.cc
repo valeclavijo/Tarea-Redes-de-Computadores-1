@@ -30,7 +30,7 @@ const uint32_t RCVBUFSIZE = 32;    // Size of receive buffer
 int main(int argc, char *argv[]) {
 
 	checkArgs* argumentos = new checkArgs(argc, argv);
-		ofstream fs("archivo.txt");
+		ofstream fs("file.txt");
     std::string servAddress; 
 	uint16_t    echoServPort;
     std::string echoString;   
@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
 	servAddress   = argumentos->getArgs().SERVER;
 	echoServPort  = argumentos->getArgs().PORT;
 	echoString    = argumentos->getArgs().DATA;
+	file = argumentos->getArgs().file;
 	
 	delete argumentos;
 	
@@ -67,6 +68,7 @@ int main(int argc, char *argv[]) {
 			totalBytesReceived += bytesReceived;     // Keep tally of total bytes
 			echoBuffer[bytesReceived] = '\0';        // Terminate the string!
 			std::cout << echoBuffer;                      // Print the echo buffer
+			archivo << echoBuffer;
 		}
 		std::cout << std::endl;
 
